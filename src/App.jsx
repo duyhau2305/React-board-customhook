@@ -1,5 +1,8 @@
 import { Tabs } from '@mantine/core';
 import { IconPhoto, IconMessageCircle, IconSettings } from '@tabler/icons-react';
+import PostTable from './assets/pages/PostTable';
+import Todos from './assets/pages/Todos';
+import Albums from './assets/pages/Albums';
 
 function App() {
 
@@ -12,15 +15,16 @@ function App() {
       </Tabs.List>
 
       <Tabs.Panel value="post" pt="xs">
-        Gallery tab content
+        <PostTable />
+        
       </Tabs.Panel>
 
       <Tabs.Panel value="todo" pt="xs">
-        Messages tab content
+        {/* <Todos /> */}
       </Tabs.Panel>
 
       <Tabs.Panel value="album" pt="xs">
-        Settings tab content
+        {/* <Albums/> */}
       </Tabs.Panel>
     </Tabs>
   )
