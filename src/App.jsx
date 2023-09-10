@@ -20,11 +20,11 @@ function App() {
       </Tabs.Panel>
 
       <Tabs.Panel value="todo" pt="xs">
-        {/* <Todos /> */}
+        <Todos />
       </Tabs.Panel>
 
       <Tabs.Panel value="album" pt="xs">
-        {/* <Albums/> */}
+        <Albums/>
       </Tabs.Panel>
     </Tabs>
   )
