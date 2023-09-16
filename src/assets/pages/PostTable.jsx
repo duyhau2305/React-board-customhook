@@ -7,7 +7,7 @@ import { useTable } from '../../hooks/useTable';
 function PostTable() {
   const [activePage, setPage] = useState(1);
   const { data } = useTable({
-    url: 'https://jsonplaceholder.typicode.com/todos?_limit=5&_page=1'
+    url: `https://jsonplaceholder.typicode.com/todos?_limit=5&_page=${activePage}`
   });
 
   const rows = data.map((element) => (
@@ -35,7 +35,7 @@ function PostTable() {
         style={{
           display: 'flex',
           justifyContent: 'flex-end',
-          margin: '0 10px'
+          margin: '0 15px'
         }}
       >
         <Pagination value={activePage} onChange={setPage} total={10} />

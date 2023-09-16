@@ -1,10 +1,12 @@
 import { Table } from '@mantine/core';
-
+import { Pagination } from '@mantine/core';
+import { useState } from 'react';
 import { useTable } from '../../hooks/useTable';
 
 function Albums() {
+  const [activePage, setPage] = useState(1);
   const { data } = useTable({
-    url: 'https://jsonplaceholder.typicode.com/todos?_limit=5&_page=1'
+    url: `https://jsonplaceholder.typicode.com/todos?_limit=5&_page=${activePage}`
   });
    
   
@@ -16,6 +18,7 @@ function Albums() {
     ));    
   
     return (
+      <>
       <Table>
         <thead>
           <tr>
@@ -25,6 +28,17 @@ function Albums() {
         </thead>
         <tbody>{rows}</tbody>
       </Table>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'flex-end',
+          margin: '0 15px'
+        }}
+      >
+        <Pagination value={activePage} onChange={setPage} total={10} />
+      </div>
+      </>
+      
     );
   }
 
