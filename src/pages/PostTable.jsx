@@ -1,13 +1,11 @@
-import { useState } from 'react';
 import { Table } from '@mantine/core';
 import { Pagination } from '@mantine/core';
 
-import { useTable } from '../../hooks/useTable';
+import { useTable } from '../hooks/useTable';
 
 function PostTable() {
-  const [activePage, setPage] = useState(1);
-  const { data } = useTable({
-    url: `https://jsonplaceholder.typicode.com/todos?_limit=5&_page=${activePage}`
+  const { data, setPage, page } = useTable({
+    resource: 'posts'
   });
 
   const rows = data.map((element) => (
@@ -38,7 +36,7 @@ function PostTable() {
           margin: '0 15px'
         }}
       >
-        <Pagination value={activePage} onChange={setPage} total={10} />
+        <Pagination value={page} onChange={setPage} total={10} />
       </div>
 
       

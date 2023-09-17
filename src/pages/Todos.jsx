@@ -1,13 +1,12 @@
 import { Table } from '@mantine/core';
 import { Pagination } from '@mantine/core';
-import { useState } from 'react';
-import { useTable } from '../../hooks/useTable';
+import { useTable } from '../hooks/useTable';
 
 function Todos() {
-    const [activePage, setPage] = useState(1);
-    const { data } = useTable({
-      url: `https://jsonplaceholder.typicode.com/todos?_limit=5&_page=${activePage}`
-    });
+  const { data, setPage, page } = useTable({
+    resource: 'todos'
+  });
+
     const rows = data.map((element) => (
       <tr key={element.id}>
         <td>{element.id}</td>
@@ -35,7 +34,7 @@ function Todos() {
           margin: '0 15px'
         }}
       >
-        <Pagination value={activePage} onChange={setPage} total={10} />
+        <Pagination value={page} onChange={setPage} total={10} />
       </div>
 
       </>

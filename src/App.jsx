@@ -1,8 +1,8 @@
 import { Tabs } from '@mantine/core';
 import { IconPhoto, IconMessageCircle, IconSettings } from '@tabler/icons-react';
-import PostTable from './assets/pages/PostTable';
-import Todos from './assets/pages/Todos';
-import Albums from './assets/pages/Albums';
+import PostTable from './pages/PostTable';
+import Todos from './pages/Todos';
+import Albums from './pages/Albums';
 
 function App() {
 

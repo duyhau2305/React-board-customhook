@@ -1,20 +1,23 @@
 import { useState, useEffect } from 'react';
 
-export function useTable({ url }) {
+export function useTable({ resource }) {
   const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     // Fetch data from the API and update state
-    fetch(url)
+    fetch(`https://jsonplaceholder.typicode.com/${resource}?_limit=5&_page=${page}`)
       .then((response) => response.json())
       .then((data) => {
         setData(data)
       })
       .catch((error) => console.error('Error fetching data:', error));
-  }, [url]);
+  }, [resource, page]);
 
   return {
-    data
+    data,
+    setPage,
+    page
   }
    
 }
