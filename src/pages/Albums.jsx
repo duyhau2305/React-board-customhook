@@ -1,5 +1,5 @@
 import { Table } from '@mantine/core';
-import { Pagination } from '@mantine/core';
+import { Pagination, Button } from '@mantine/core';
 import { useTable } from '../hooks/useTable';
 
 function Albums() {
@@ -10,7 +10,8 @@ function Albums() {
     const rows = data.map((element) => (
       <tr key={element.id}>
         <td>{element.id}</td>
-        <td>{element.title}</td>       
+        <td>{element.title}</td>   
+        <td><Button variant="filled">View</Button></td>     
       </tr>
     ));    
   
@@ -20,7 +21,8 @@ function Albums() {
         <thead>
           <tr>
             <th>Id</th>
-            <th>Title</th>            
+            <th>Title</th> 
+            <th>Action</th>           
           </tr>
         </thead>
         <tbody>{rows}</tbody>
